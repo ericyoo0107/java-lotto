@@ -1,6 +1,9 @@
 package lotto;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Lotto {
     private final List<Integer> numbers;
@@ -8,6 +11,7 @@ public class Lotto {
     public Lotto(List<Integer> numbers) {
         validate(numbers);
         numberRange1_45(numbers);
+        findSameNumber(numbers);
         this.numbers = numbers;
     }
 
@@ -17,11 +21,23 @@ public class Lotto {
         }
     }
 
-    private void numberRange1_45(List<Integer> numbers) {
+    private void numberRange1_45(List<Integer> numbers) { //1~45가 아니라 다른 숫자 넣은 경우 에러발생
         for (Integer num : numbers) {
             if (num < 1 || num > 45) {
                 throw new IllegalArgumentException();
             }
         }
+    }
+
+    private void findSameNumber(List<Integer> numbers) { //같은 숫자 들어왔을 경우 에러발생
+        if(sameKiller(numbers).size() != numbers.size())
+            throw new IllegalArgumentException();
+    }
+
+    private List<Integer> sameKiller(List<Integer> numbers)
+    {
+        Set<Integer> killSame = new HashSet<>(numbers);
+        List<Integer> noSameNow = new ArrayList<>(killSame);
+        return noSameNow;
     }
 }
