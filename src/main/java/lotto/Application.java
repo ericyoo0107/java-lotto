@@ -7,7 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
     public static void main(String[] args) {
         System.out.println("구입금액을 입력해 주세요.");
-        int userMoney = Integer.parseInt(Console.readLine());
+        String userMoney = Console.readLine();
         User JunHyuk = new User(userMoney);
         JunHyuk.buyLotto();
 
@@ -27,7 +27,7 @@ public class Application {
         System.out.println("당첨 통계");
         System.out.println("---");
         lottoMachine.showResult();
-        double yield = lottoMachine.getReturnMoney() / userMoney;
+        double yield = (lottoMachine.getReturnMoney() * 100.0 / JunHyuk.getMoney());
         System.out.println("총 수익률은 " + yield + "%입니다.");
     }
 }
