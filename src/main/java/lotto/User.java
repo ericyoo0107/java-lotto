@@ -7,7 +7,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class User {
 	private final List<Lotto> myLotto = new ArrayList<>();
-	int money;
+	private int money;
 
 	public User(int money)
 	{
@@ -28,5 +28,9 @@ public class User {
 			Lotto lotto = new Lotto(numbers);
 			myLotto.add(lotto);
 		}
+	}
+
+	public List<Lotto> getMyLotto() {
+		return myLotto;
 	}
 }
