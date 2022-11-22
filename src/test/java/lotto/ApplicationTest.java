@@ -54,6 +54,16 @@ class ApplicationTest extends NsTest {
         });
     }
 
+    @Test
+    void 천원단위가_아닐때() {
+        assertSimpleTest(() -> {
+            runException("10004");
+            assertThat(output()).contains(ERROR_MESSAGE);
+        });
+    }
+
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

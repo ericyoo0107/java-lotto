@@ -2,6 +2,7 @@ package lotto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -18,12 +19,11 @@ public class User {
 		for (int i = 0; i < money.length(); i++) {
 			if (money.charAt(i) < '0' || money.charAt(i) > '9') {
 				System.out.println("[ERROR] 돈은 1000원 단위로 지불해야합니다.");
-				throw new IllegalArgumentException();
+				throw new NoSuchElementException("[ERROR] 돈은 1000원 단위로 지불해야합니다.");
 			}
 		}
 		if (Integer.parseInt(money) % 1000 != 0) {
-			System.out.println("[ERROR] 돈은 1000원 단위로 지불해야합니다.");
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("[ERROR] 돈은 1000원 단위로 지불해야합니다.");
 		}
 	}
 

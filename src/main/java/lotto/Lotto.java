@@ -12,6 +12,7 @@ public class Lotto {
 		validate(numbers);
 		numberRange1_45(numbers);
 		findSameNumber(numbers);
+
 		this.numbers = numbers;
 	}
 
